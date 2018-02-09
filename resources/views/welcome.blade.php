@@ -7,16 +7,66 @@
 
     <title>Laravel</title>
 
-  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            height: 100vh;
+            margin: 0;
+        }
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/mainStyle.css') }}">
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
     <div class="flex-center position-ref full-height">
-       {{--  @if (Route::has('login'))
+        @if (Route::has('login'))
             <div class="top-right links">
                 @auth
                     <a href="{{ url('/home') }}">Home</a>
@@ -25,49 +75,20 @@
                         <a href="{{ route('register') }}">Register</a>
                         @endauth
             </div>
-        @endif --}}
+        @endif
 
         <div class="content">
+            <div class="title m-b-md">
+                Laravel
+            </div>
 
-            <h1>Chat</h1>
-
-      
-                    
-                    <div id="chat-window" class="card">
-                         <div id="output"></div>
-                    </div>
-                    <input id="message" type="text" placeholder="Message" class="form-control" />
-                    <button id="send"
-                            class="btn btn-primary" 
-                    >Send</button>
-    
+            <h3 class="">
 
 
+                {{ Auth::user()->premium() > 0 ? 'konto premium jest aktywne' : 'nie aktywne' }}
 
-           
+            </h3>
         </div>
     </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <script type="text/javascript">
-        var socket = io.connect('http://lb4.dev:8890');
-        var message = document.getElementById('message'),
-      
-        btn = document.getElementById('send'),
-        output = document.getElementById('output');
-
-        // Emit events
-        btn.addEventListener('click', function(){
-            socket.emit('messageWasSend', {
-            message: message.value,
-            // handle: handle.value
-        });
-            message.value = "";
-        });
-
-        // Listen for events
-        socket.on('messageWasSend', function(data){
-            output.innerHTML += '<p><strong>' + '</strong>' + data.message + '</p>';
-        });
-    </script>
 </body>
 </html>

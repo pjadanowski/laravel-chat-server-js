@@ -1,5 +1,9 @@
 <?php
 
+use App\User;
+use Carbon\Carbon;
+
+Carbon::setLocale('pl');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +16,13 @@
 */
 
 Route::get('/', function () {
+
+    $user = User::find(1);
+    // $user->premium = Carbon::now()->addDays(30);
+    // $user->save();
+
+    // Auth::login($user, true);
+
     return view('welcome');
 });
 
@@ -23,3 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/chat', function(){
 	return view('pages.chat');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

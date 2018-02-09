@@ -1,9 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
 body{
     font-family: 'Nunito';
-    background-color: #F7F6F5 ; 
+    background-color: #F7F6F5 ;
 }
 #app{
-    background-color: #F7F6F5 ; 
+    background-color: #F7F6F5 ;
 }
 
 .full-height {
