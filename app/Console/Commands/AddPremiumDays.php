@@ -20,6 +20,7 @@ class AddPremiumDays extends Command
      * @var string
      */
     protected $description = 'Command description';
+    // php /home/pawel92/domains/pawel92.ayz.pl/artisan schedule:run >> /dev/null 2>&1
 
     /**
      * Create a new command instance.
