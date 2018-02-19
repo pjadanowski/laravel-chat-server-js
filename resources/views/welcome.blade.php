@@ -85,7 +85,7 @@
             <h3 class="">
 
 
-                {{ Auth::user()->premium() > 0 ? 'konto premium jest aktywne' : 'nie aktywne' }}
+                {{ Auth::check() && Auth::user()->premium() > 0 ? 'konto premium jest aktywne' : 'nie aktywne' }}
 
             </h3>
         </div>

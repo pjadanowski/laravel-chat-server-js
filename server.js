@@ -4,6 +4,8 @@ var io = require('socket.io')(server);
 var redis = require('redis');
  
 server.listen(8890);
+console.log("node.js server listening on port 8890");
+
 io.on('connection', function (socket) {
  
   console.log("new client connected");
